@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #1d242b;
+    box-sizing: border-box;
+}
+
+h1 {
+    margin: 0;
+    padding: 25px;
+    margin-bottom: 75px;
+    color: #e3e4e6;
+    text-align: center;
+    background-color: #1d242b;
+    opacity: 0.8;
+    filter: drop-shadow(0 -2px 3px #4f412c);
+}
+
+h2 {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #12171b;
+}
+
+a:hover {
+    color: #6faa52;
+}
+
+input {
+    width: 100%;
+    color: #fff;
+    background-color: #82888d;
+    font-size: 16px;
+    outline: none;
+    border: none;
+}
+
+p.whitebox {
+    margin-bottom: 75px;
+}
+
+.wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-bottom: 70px;
+    background-color: #1d242b;
+    background: url(../img/bcg.webp) no-repeat;
+    background-size: 100%;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+}
+
+.dark-box,
+.whitebox {
+    position: relative;
+    width: 960px;
+    height: auto;
+    margin: 0 auto;
+    padding: 75px;
+    background-color: #1d242b;
+    opacity: 0.8;
+}
+
+.button {
+    display: inline-block;
+    color: #12171b;
+    outline: none;
+    padding: 100px 75px;
+    opacity: 1;
+    border: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    transition: all 1s ease;
+}
+
+.button:hover {
+    color: #fff;
+    background-color: #6faa52;
+    border-radius: 5px;
+}
+
+.whitebox {
+    padding-top: 0;
+    background-color: #fff;
+    opacity: 0.9;
+    color: #12171b;
+}
+
+.coin {
+    color: #fff;
+    background-color: #62676b;
+}
+
+.form {
+    padding-bottom: 50px;
+}
+
+.border {
+    padding: 50px 25px;
+    color: #fff;
+    background-color: #82888d;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.nextbutt {
+    margin: 10px;
+    margin-left: 71.2%;
+    padding: 15px 55px;
+    color: #fff;
+    background-color: #82888d;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    transition: all 1s ease;
+}
+
+.nextbutt:hover {
+    color: #fff;
+    background-color: #6faa52;
+    border-radius: 5px;
+}
+
