@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +15,6 @@
             <?php 
                 if ($_POST) {
                     $level = $_POST["level"];
-                    $choise = (isset($_POST["choise"]));
                     $game = 0;
                     $win = 0;
                 }
@@ -32,7 +31,6 @@
                         <input type="hidden" name="level" value="<?php echo($level); ?>">
                         <input type="hidden" name="game" value="0">
                         <input type="hidden" name="win" value="0">
-                        <input type="hidden" name="choise" value="0">
                         <input type="hidden" name="winner" value="<?php echo($winner); ?>">
                         <button class="button" type="submit" name="level" value="easy"><p>Easy</p></button>
                         <button class="button" type="submit" name="level" value="medium" 

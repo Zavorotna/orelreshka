@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,18 +14,19 @@
             <p><a href="index.php">На головну сторінку</a></p>
             <?php 
                 $level = $_POST["level"];
-                $choise = $_POST["choise"];
                 $game = $_POST["game"];
                 $winner = $_POST["winner"];
-                $game += 1;
-                $moneta = rand(0,1);
-                $side = $moneta;
                 $win = $_POST["win"];
                 switch ($level) {
                     case 'easy':
-                        echo "Легкий рівень";
-                        if (isset($choise)) {
+                        echo "easy";
+                        if (isset($_POST["choise"])) {
+                            $game += 1;
+                            $moneta = rand(0,1);
+                            $side = $moneta;
+                            $choise = $_POST["choise"];
                             if ($choise == $moneta) {
+                                $win += 1;
                                 if ($moneta == 1) $side = "<p>Orel</p>";
                                 else $side = "<p>Reshka</p>";
                                 echo "<p>$side You win</p>";
@@ -34,6 +35,7 @@
                                 if ($moneta == 1) $side = "<p>Orel</p>";
                                 else $side = "<p>Reshka</p>";
                                 if ($choise == $moneta) {
+                                    $win += 1;
                                     echo "<p>$side You win</p>";
                                 } else {
                                     echo "<p>$side You lose</p>";
@@ -45,8 +47,13 @@
                     break;
                     case 'medium':
                         echo "medium";
-                        if (isset($choise)) {
+                        if (isset($_POST["choise"])) {
+                            $game += 1;
+                            $moneta = rand(0,1);
+                            $side = $moneta;
+                            $choise = $_POST["choise"];
                             if ($choise == $moneta) {
+                                $win += 1;
                                 if ($moneta == 1) $side = "<p>Orel</p>";
                                 else $side = "<p>Reshka</p>";
                                 echo "<p>$side You win</p>";
@@ -61,12 +68,18 @@
                     break;
                     case 'hard': 
                         echo "hard";
-                        if (isset($choise)) {
+                        if (isset($_POST["choise"]))  {
+                            $game += 1;
+                            $moneta = rand(0,1);
+                            $side = $moneta;
+                            $choise = $_POST["choise"];
                             if ($choise == $moneta) {
+                                $win += 1;
                                 $moneta = rand(0,1);
                                 if ($moneta == 1) $side = "<p>Orel</p>";
                                 else $side = "<p>Reshka</p>";
                                 if ($choise == $moneta) {
+                                    $win += 1;
                                     if ($moneta == 1) $side = "<p>Orel</p>";
                                     else $side = "<p>Reshka</p>";
                                     echo "<p>$side You win</p>";
@@ -93,9 +106,6 @@
                     echo "result.php";
                 } else {
                     echo "game.php";
-                    if ($choise == $moneta) {
-                        $win += 1;
-                    }
                 }
                 ?>" method="post">
                     <h2>Зроби свій вибір</h2>

@@ -13,7 +13,7 @@
             <h1>Гра "Орел і Решка"</h1>
             <p><a href="index.php">На головну сторінку</a></p>
             <div class="form">
-                <form action="fullgame.php" method="post">
+                <form action="index.php" method="post">
                 <?php 
                     $level = $_POST["level"];
                     $win = $_POST["win"];
