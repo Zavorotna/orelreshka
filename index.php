@@ -45,6 +45,8 @@
                         <?php 
                         if ($winner >= 3 && $level == "medium") {
                             echo "undisabled";
+                        } else if ($winner >= 3 && $level == "hard") {
+                            echo "undisabled";
                         } else {
                             echo "disabled";
                         }

@@ -118,23 +118,23 @@ input {
 
 .coin {
     display: block;
-    background: url(../img/coin.png) no-repeat;
+    background: url(../img/coin.svg) no-repeat;
     font-size: 35px;
     cursor: pointer;
 }
 
 .orel {
     border: none;
-    width: 194px;
-    height: 190px;
-    background-position: -6px -10px;
+    width: 198px;
+    height: 195px;
+    background-position: 0 0;
 }
 
 .reshka {
     border: none;
     width: 185px;
-    height: 192px;
-    background-position: -218px -9px;
+    height: 200px;
+    background-position: -210px 0px;
 }
 
 .form {
@@ -159,6 +159,7 @@ input {
     border-radius: 5px;
     outline: none;
     transition: all 1s ease;
+    cursor: pointer;
 }
 
 .nextbutt:hover {

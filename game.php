@@ -14,7 +14,6 @@
             <p><a href="index.php">На головну сторінку</a></p>
         </div>
         <header class="whitebox">
-            <h2>Випала сторона</h2>
             <?php 
                 $level = $_POST["level"];
                 $game = $_POST["game"];
@@ -29,18 +28,18 @@
                             $choise = $_POST["choise"];
                             if ($choise == $moneta) {
                                 $win += 1;
-                                if ($moneta == 1) $side = "<p class='echo coin orel'></p>";
-                                else $side = "<p class='echo coin reshka'></p>";
-                                echo "<p class='echo'>$side</p><p class='echo'>Ви виграли</p>";
+                                if ($moneta == 1) $side = "<p class='echo'>Випала сторона</p><p class='echo coin orel'>";
+                                else $side = "<p class='echo'>Випала сторона</p><p class='echo coin reshka'></p>";
+                                echo "<p class='echo'>$side</p><p class='echo'>Ура! Ти виграв!</p>";
                             } else {
                                 $moneta = rand(0,1);
-                                if ($moneta == 1) $side = "<p class='echo coin orel'></p>";
-                                else $side = "<p class='echo coin reshka'></p>";
+                                if ($moneta == 1) $side = "<p class='echo'>Випала сторона</p><p class='echo coin orel'>";
+                                else $side = "<p class='echo'>Випала сторона</p><p class='echo coin reshka'></p>";
                                 if ($choise == $moneta) {
                                     $win += 1;
-                                    echo "<p class='echo'>$side</p><p class='echo'>Ви виграли</p>";
+                                    echo "<p class='echo'>$side</p><p class='echo'>Ура! Ти виграв!</p>";
                                 } else {
-                                    echo "<p class='echo'>$side</p><p class='echo'>Ви програли</p>";
+                                    echo "<p class='echo'>$side</p><p class='echo'>Упс! Програв!</p>";
                                 }
                             }
                         } 
@@ -53,13 +52,13 @@
                             $choise = $_POST["choise"];
                             if ($choise == $moneta) {
                                 $win += 1;
-                                if ($moneta == 1) $side = "<p class='echo coin orel'></p>";
-                                else $side = "<p class='echo coin reshka'></p>";
-                                echo "<p class='echo'>$side</p><p class='echo'>Ви виграли</p>";
+                                if ($moneta == 1) $side = "<p class='echo'>Випала сторона</p><p class='echo coin orel'>";
+                                else $side = "<p class='echo'>Випала сторона</p><p class='echo coin reshka'></p>";
+                                echo "<p class='echo'>$side</p><p class='echo'>Ура! Ти виграв!</p>";
                             } else {
-                                if ($moneta == 1) $side = "<p class='echo coin orel'></p>";
-                                else $side = "<p class='echo coin reshka'></p>";
-                                echo "<p class='echo'>$side</p><p class='echo'>Ви програли</p>";
+                                if ($moneta == 1) $side = "<p class='echo'>Випала сторона</p><p class='echo coin orel'>";
+                                else $side = "<p class='echo'>Випала сторона</p><p class='echo coin reshka'></p>";
+                                echo "<p class='echo'>$side</p><p class='echo'>Упс! Програв!</p>";
                             }
                         } 
                     break;
@@ -70,25 +69,19 @@
                             $side = $moneta;
                             $choise = $_POST["choise"];
                             if ($choise == $moneta) {
-                                $win += 1;
                                 $moneta = rand(0,1);
-                                if ($moneta == 1) $side = "<p class='echo coin orel'></p>";
-                                else $side = "<p class='echo coin reshka'></p>";
-                                    echo "<p class='echo'>$side</p><p class='echo'>Ви виграли</p>";
+                                if ($moneta == 1) $side = "<p class='echo'>Випала сторона</p><p class='echo coin orel'>";
+                                else $side = "<p class='echo'>Випала сторона</p><p class='echo coin reshka'></p>";
                                 if ($choise == $moneta) {
                                     $win += 1;
-                                    if ($moneta == 1) $side = "<p class='echo coin orel'></p>";
-                                    else $side = "<p class='echo coin reshka'></p>";
-                                    echo "<p class='echo'>$side</p><p class='echo'>Ви виграли</p>";
+                                    echo "<p class='echo'>$side</p><p class='echo'>Ура! Ти виграв!</p>";
                                 } else {
-                                    if ($moneta == 1) $side = "<p class='echo coin orel'></p>";
-                                    else $side = "<p class='echo coin reshka'></p>";
-                                    echo "<p class='echo'>$side</p><p class='echo'>Ви програли</p>";
+                                    echo "<p class='echo'>$side</p><p class='echo'>Упс! Програв!</p>";
                                 }
                             } else {
-                                if ($moneta == 1) $side = "<p class='echo coin orel'></p>";
-                                else $side = "<p class='echo coin reshka'></p>";
-                                echo "<p class='echo'>$side</p><p class='echo'>Ви програли</p>";
+                                if ($moneta == 1) $side = "<p class='echo'>Випала сторона</p><p class='echo coin orel'>";
+                                else $side = "<p class='echo'>Випала сторона</p><p class='echo coin reshka'></p>";
+                                echo "<p class='echo'>$side</p><p class='echo'>Упс! Програв!</p>";
                             }
                         } 
                     break;
