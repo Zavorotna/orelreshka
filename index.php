@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,7 +32,7 @@
                         <input type="hidden" name="game" value="0">
                         <input type="hidden" name="win" value="0">
                         <input type="hidden" name="winner" value="<?php echo($winner); ?>">
-                        <button class="button" type="submit" name="level" value="easy"><p>Easy</p></button>
+                        <button class="button" type="submit" name="level" value="easy"><p>Легкий</p></button>
                         <button class="button" type="submit" name="level" value="medium" 
                         <?php 
                         if ($winner >= 2) {
@@ -40,7 +40,7 @@
                         } else {
                             echo "disabled";
                         }
-                        ?> ><p>Medium</p></button>
+                        ?> ><p>Середній</p></button>
                         <button class="button" type="submit" name="level" value="hard" 
                         <?php 
                         if ($winner >= 3 && $level == "medium") {
@@ -48,7 +48,7 @@
                         } else {
                             echo "disabled";
                         }
-                        ?> ><p>Hard</p></button>
+                        ?> ><p>Важкий</p></button>
                     </p>
                 </form>
             </div>

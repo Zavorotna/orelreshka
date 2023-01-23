@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,11 +9,13 @@
 </head>
 <body>
     <div class="wrapper">
-        <header class="whitebox">
-            <h1>Гра "Орел і Решка"</h1>
+        <div class="flex head">
+            <p>Гра "Орел і Решка"</p>
             <p><a href="index.php">На головну сторінку</a></p>
+        </div>
+        <header class="whitebox">
             <div class="form">
-                <form action="index.php" method="post">
+                <form action="index.php" method="post" class="form">
                 <?php 
                     $level = $_POST["level"];
                     $win = $_POST["win"];
@@ -21,6 +23,9 @@
                     $lose = 10-$win;
                     if ($win > $lose) {
                         $winner += 1;
+                        echo "<p class='echo'>Вітаємо! Ви перемогли! Відкрито наступний рівень</p>";
+                    } else {
+                        echo "<p class='echo'>Нажаль ви програли! Спробуйте ще раз</p>";
                     }
                 ?>
                     <div class="flex">
