@@ -21,9 +21,12 @@
                     $win = $_POST["win"];
                     $winner = $_POST["winner"];
                     $lose = 10-$win;
-                    if ($win > $lose) {
-                        $winner += 1;
-                        echo "<p class='echo'>Вітаю! Ти переміг! Відкрито наступний рівень</p>";
+                    if ($win >= 5) {
+                        echo "<p class='echo'>Вітаю! Ти переміг!</p>";
+                        if ($level == "easy" && $winner == 0 || $level == "medium" && $winner == 1) {
+                            $_POST["winner"] = ++$winner;
+                            echo "<p class='echo'>Відкрито наступний рівень</p>";
+                        }
                     } else {
                         echo "<p class='echo'>Нажаль ти програв! Спробуй ще раз</p>";
                     }

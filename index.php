@@ -12,42 +12,28 @@
         <header>
             <h1>Гра "Орел і Решка"</h1>
             <div class="flex dark-box">
-            <?php 
-                if ($_POST) {
-                    $level = $_POST["level"];
-                    $game = 0;
-                    $win = 0;
-                }
-            ?>
                 <form action="game.php" method="post">
                     <?php
                     if (!isset($_POST["winner"])) {
-                        $winner = 1;
+                        $winner = 0;
                     } else {
                         $winner = $_POST["winner"];
                     }
                     ?>
                     <p class="level">
-                        <input type="hidden" name="level" value="<?php echo($level); ?>">
                         <input type="hidden" name="game" value="0">
                         <input type="hidden" name="win" value="0">
                         <input type="hidden" name="winner" value="<?php echo($winner); ?>">
                         <button class="button" type="submit" name="level" value="easy"><p>Легкий</p></button>
                         <button class="button" type="submit" name="level" value="medium" 
                         <?php 
-                        if ($winner >= 2) {
-                            echo "undisabled";
-                        } else {
+                        if ($winner == 0) {
                             echo "disabled";
                         }
                         ?> ><p>Середній</p></button>
                         <button class="button" type="submit" name="level" value="hard" 
                         <?php 
-                        if ($winner >= 3 && $level == "medium") {
-                            echo "undisabled";
-                        } else if ($winner >= 3 && $level == "hard") {
-                            echo "undisabled";
-                        } else {
+                        if ($winner != 2) {
                             echo "disabled";
                         }
                         ?> ><p>Важкий</p></button>

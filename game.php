@@ -19,92 +19,81 @@
                 $game = $_POST["game"];
                 $winner = $_POST["winner"];
                 $win = $_POST["win"];
-                switch ($level) {
-                    case 'easy':
-                        if (isset($_POST["choise"])) {
-                            $game += 1;
-                            $moneta = rand(0,1);
-                            $side = $moneta;
-                            $choise = $_POST["choise"];
-                            if ($choise == $moneta) {
-                                $win += 1;
-                                if ($moneta == 1) $side = "<p class='echo'>Випала сторона</p><p class='echo coin orel'>";
-                                else $side = "<p class='echo'>Випала сторона</p><p class='echo coin reshka'></p>";
+                if (isset($_POST["choise"])) {
+                    $choise = $_POST["choise"];
+                    $coin = rand(0,1);
+                    $_POST["game"] = ++$game;
+                    echo $game;
+                    $side = $coin;
+                    if ($coin == 1) $side = "<p class='echo'>Випала сторона</p><p class='echo coin orel'>";
+                    else $side = "<p class='echo'>Випала сторона</p><p class='echo coin reshka'></p>";
+                    switch ($level) {
+                        case 'easy':
+                            if ($choise == $coin) {
+                                $_POST["win"] = ++$win;
                                 echo "<p class='echo'>$side</p><p class='echo'>Ура! Ти виграв!</p>";
                             } else {
-                                $moneta = rand(0,1);
-                                if ($moneta == 1) $side = "<p class='echo'>Випала сторона</p><p class='echo coin orel'>";
-                                else $side = "<p class='echo'>Випала сторона</p><p class='echo coin reshka'></p>";
-                                if ($choise == $moneta) {
-                                    $win += 1;
+                                $coin = rand(0,1);
+                                if ($choise == $coin) {
+                                    $_POST["win"] = ++$win;
                                     echo "<p class='echo'>$side</p><p class='echo'>Ура! Ти виграв!</p>";
                                 } else {
                                     echo "<p class='echo'>$side</p><p class='echo'>Упс! Програв!</p>";
                                 }
                             }
-                        } 
-                    break;
-                    case 'medium':
-                        if (isset($_POST["choise"])) {
-                            $game += 1;
-                            $moneta = rand(0,1);
-                            $side = $moneta;
-                            $choise = $_POST["choise"];
-                            if ($choise == $moneta) {
-                                $win += 1;
-                                if ($moneta == 1) $side = "<p class='echo'>Випала сторона</p><p class='echo coin orel'>";
-                                else $side = "<p class='echo'>Випала сторона</p><p class='echo coin reshka'></p>";
-                                echo "<p class='echo'>$side</p><p class='echo'>Ура! Ти виграв!</p>";
-                            } else {
-                                if ($moneta == 1) $side = "<p class='echo'>Випала сторона</p><p class='echo coin orel'>";
-                                else $side = "<p class='echo'>Випала сторона</p><p class='echo coin reshka'></p>";
-                                echo "<p class='echo'>$side</p><p class='echo'>Упс! Програв!</p>";
-                            }
-                        } 
-                    break;
-                    case 'hard': 
-                        if (isset($_POST["choise"]))  {
-                            $game += 1;
-                            $moneta = rand(0,1);
-                            $side = $moneta;
-                            $choise = $_POST["choise"];
-                            if ($choise == $moneta) {
-                                $moneta = rand(0,1);
-                                if ($moneta == 1) $side = "<p class='echo'>Випала сторона</p><p class='echo coin orel'>";
-                                else $side = "<p class='echo'>Випала сторона</p><p class='echo coin reshka'></p>";
-                                if ($choise == $moneta) {
-                                    $win += 1;
+                        break;
+                        case 'medium':
+                                if ($choise == $coin) {
+                                    $_POST["win"] = ++$win;
+                                    echo "<p class='echo'>$side</p><p class='echo'>Ура! Ти виграв!</p>";
+                                } else {
+                                    echo "<p class='echo'>$side</p><p class='echo'>Упс! Програв!</p>";
+                                }
+                        break;
+                        case 'hard':
+                            if ($choise == $coin) {
+                                $coin = rand(0,1);
+                                if ($choise == $coin) {
+                                    $_POST["win"] = ++$win;
                                     echo "<p class='echo'>$side</p><p class='echo'>Ура! Ти виграв!</p>";
                                 } else {
                                     echo "<p class='echo'>$side</p><p class='echo'>Упс! Програв!</p>";
                                 }
                             } else {
-                                if ($moneta == 1) $side = "<p class='echo'>Випала сторона</p><p class='echo coin orel'>";
-                                else $side = "<p class='echo'>Випала сторона</p><p class='echo coin reshka'></p>";
                                 echo "<p class='echo'>$side</p><p class='echo'>Упс! Програв!</p>";
                             }
-                        } 
-                    break;
+                        break;
+                    }
                 }
             ?>
             <div class="game">
                 <form action="
-                <?php 
-                if ($game == 10) {
-                    echo "result.php";
-                } else {
-                    echo "game.php";
-                }
-                ?>" method="post">
-                    <h2>Зроби свій вибір</h2>
-                    <div class="flex">
-                        <input type="hidden" name="level" value="<?php echo($level); ?>">
-                        <input type="hidden" name="game" value="<?php echo($game); ?>">
-                        <input type="hidden" name="win" value="<?php echo($win); ?>">
-                        <input type="hidden" name="winner" value="<?php echo($winner); ?>">
-                        <button class="coin orel" type="radio" name="choise" value="1"></button>
-                        <button class="coin reshka" type="radio" name="choise" value="0"></button>
-                    </div>
+                    <?php
+                    if ($game < 10) {
+                        echo "game.php";
+                    } else {
+                        echo "result.php";
+                    }
+                    ?>" method="post">
+                    <?php
+                        if ($game < 10) {
+                            echo "
+                            <h2>Зроби свій вибір</h2>
+                            <div class='flex'>
+                                    <button class='coin orel' type='submit' name='choise' value='1'></button>
+                                    <button class='coin reshka' type='submit' name='choise' value='0'></button>
+                                </div>
+                            ";
+                        } else {
+                            echo "
+                                <button class='nextbutt' type='submit'>Result</button>
+                            ";
+                        }
+                    ?>
+                    <input type="hidden" name="level" value="<?php echo($level); ?>">
+                    <input type="hidden" name="game" value="<?php echo($game); ?>">
+                    <input type="hidden" name="win" value="<?php echo($win); ?>">
+                    <input type="hidden" name="winner" value="<?php echo($winner); ?>">
                 </form>
             </div>
         </header>
