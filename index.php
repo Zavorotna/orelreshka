@@ -14,6 +14,7 @@
             <div class="flex dark-box">
                 <form action="game.php" method="post">
                     <?php
+                    // рахунок перемог для розблокування рівня
                     if (!isset($_POST["winner"])) {
                         $winner = 0;
                     } else {
@@ -27,6 +28,7 @@
                         <button class="button" type="submit" name="level" value="easy"><p>Легкий</p></button>
                         <button class="button" type="submit" name="level" value="medium" 
                         <?php 
+                        // розблокування рівня при виграші на попередньому
                         if ($winner == 0) {
                             echo "disabled";
                         }
